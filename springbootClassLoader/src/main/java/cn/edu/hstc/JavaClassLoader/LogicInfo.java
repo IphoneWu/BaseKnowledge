@@ -1,4 +1,4 @@
-package cn.edu.hstc;
+package cn.edu.hstc.JavaClassLoader;
 
 public class LogicInfo {
     private MyClassLoader myClassLoader;//自定义类加载

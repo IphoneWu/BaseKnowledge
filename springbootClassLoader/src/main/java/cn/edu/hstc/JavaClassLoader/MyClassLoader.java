@@ -1,4 +1,4 @@
-package cn.edu.hstc;
+package cn.edu.hstc.JavaClassLoader;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -17,7 +17,7 @@ public class MyClassLoader extends ClassLoader {
     @Override
     protected Class<?> findClass(String name) throws ClassNotFoundException {
         byte[] data = this.loadClassData(name);
-        return super.defineClass(name,data,0,data.length);
+        return defineClass(name,data,0,data.length);
     }
 
     /**
@@ -27,8 +27,9 @@ public class MyClassLoader extends ClassLoader {
      */
     private byte[] loadClassData(String name) {
         try {
-            name = name.replace(".","/");
+            name = name.replace(".","//");
             FileInputStream fileInputStream = new FileInputStream(new File(classPath+name+".class"));
+            System.out.println(classPath+name+".class");
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int b = 0;
             if ((b = fileInputStream.read())!=-1){
